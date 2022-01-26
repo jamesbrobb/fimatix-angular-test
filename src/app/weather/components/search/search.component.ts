@@ -1,16 +1,19 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html'
 })
 export class SearchComponent {
-  // IMPLEMENT ANY INPUT OR OUTPUT YOU MIGHT NEED
 
-  constructor() {
-  }
+  @Output() onsearch = new EventEmitter<string>();
 
-  search() {
-    // TO BE IMPLEMENTED
+  search(city: string): void {
+
+    if(!city) {
+      return;
+    }
+
+    this.onsearch.emit(city);
   }
 }

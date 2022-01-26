@@ -1,4 +1,4 @@
-<form class="form-inline mb-5">
+<form #searchForm="ngForm" class="form-inline mb-5" (ngSubmit) = "search(searchForm.value.city)">
   <div class="form-group col-8 pl-0">
     <input class="form-control mt-3 col"
            id="city"
@@ -6,7 +6,8 @@
            placeholder="City"
            type="text"
            required
+           ngModel
     >
   </div>
-  <button class="btn-search btn btn-primary mt-3 col-4" type="submit" (click)="search()" >Search</button>
+  <button class="btn-search btn btn-primary mt-3 col-4" type="submit" value="submit">Search</button>
 </form>
