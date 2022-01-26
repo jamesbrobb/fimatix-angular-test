@@ -8,7 +8,7 @@ export const weatherReducer = createReducer(
     initialState,
     on(searchResult, (state: WeatherState, { result }) => {
         return state.filter((weather: Weather) => {
-            return weather.city.name !== result.city.name && weather.city.country !== result.city.country
+            return (weather.city.name !== result.city.name) || (weather.city.country !== result.city.country)
         })
         .concat(result);
     })
